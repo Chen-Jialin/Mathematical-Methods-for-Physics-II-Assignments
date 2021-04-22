@@ -1,0 +1,225 @@
+%Mathematical Methods for Physics II Homework_1
+\documentclass[10pt,a4paper]{article}
+\usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\title{数学物理方法II第一次作业}
+\author{陈稼霖 \and 45875852}
+\date{2019.3.1}
+\begin{document}
+\maketitle
+\section{}
+\noindent在极坐标系中写出速度$\frac{d\vec{r}}{dt}$和加速度$\frac{d\vec{v}}{dt}$，结果用$\vec{e}_r$、$\vec{e}_{\theta}$表示.\\
+解：在极坐标系中速度为
+\begin{align*}
+\frac{d\vec{r}}{dt}=&\frac{d(r\vec{e}_r)}{dt}\\
+=&\frac{dr}{dt}\vec{e}_r+r\frac{d\vec{e}_r}{dt}\\
+=&\frac{dr}{dt}\vec{e}_r+r\frac{d\theta}{dt}\vec{e}_{\theta}
+\end{align*}
+加速度为
+\begin{align*}
+\frac{d\vec{v}}{dt}=&\frac{d(\frac{dr}{dt}\vec{e}_r+r\frac{d\theta}{dt}\vec{e}_{\theta})}{dt}\\
+=&\frac{d^2r}{dt^2}\vec{e}_r+\frac{dr}{dt}\frac{d\vec{e}_r}{dt}+\frac{dr}{dt}\frac{d\theta}{dt}\vec{e}_{\theta}+r\frac{d^2\theta}{dt^2}\vec{e}_{\theta}+r\frac{d\theta}{dt}\frac{d\vec{e}_{\theta}}{dt}\\
+=&\frac{d^2r}{dt^2}\vec{e}_r+\frac{dr}{dt}\frac{d\theta}{dt}\vec{e}_{\theta}+\frac{dr}{dt}\frac{d\theta}{dt}\vec{e}_{\theta}+r\frac{d^2\theta}{dt^2}\vec{e}_{\theta}-r(\frac{d\theta}{dt})^2\vec{e}_r\\
+=&[\frac{d^2r}{dt^2}-r(\frac{d\theta}{dt})^2]\vec{e}_r+(2\frac{dr}{dt}\frac{d\theta}{dt}+r\frac{d^2\theta}{dt^2})\vec{e}_{\theta}
+\end{align*}
+\section{}
+\noindent设矢量$\vec{r}$为某个源点$\vec{x}'$指向场点$\vec{x}$的矢量，而$r$为源点到场点的距离.
+\[
+\vec{r}=\vec{x}-\vec{x}'=\vec{e}_x(x-x')+\vec{e}_y(y-y')+\vec{e}_z(z-z')
+\]
+请求出\\
+(1) $\nabla\frac{1}{r}$\\
+解：
+\footnotesize\begin{align*}
+\nabla\frac{1}{r}=&\frac{\partial\frac{1}{\sqrt{(x-x')^2+(y-y')^2+(z-z')^2}}}{\partial x}\vec{e}_x+\frac{\partial\frac{1}{\sqrt{(x-x')^2+(y-y')^2+(z-z')^2}}}{\partial y}\vec{e}_y\\
+&+\frac{\partial\frac{1}{\sqrt{(x-x')^2+(y-y')^2+(z-z')^2}}}{\partial z}\vec{e}_z
+\end{align*}
+\begin{align*}
+=&-\frac{x-x'}{[(x-x')^2+(y-y')^2+(z-z')^2]^{\frac{3}{2}}}\vec{e}_x-\frac{y-y'}{[(x-x')^2+(y-y')^2+(z-z')^2]^{\frac{3}{2}}}\vec{e}_y\\
+&-\frac{z-z'}{[(x-x')^2+(y-y')^2+(z-z')^2]^{\frac{3}{2}}}\vec{e}_z\\
+=&-\frac{(x-x')\vec{e}_x+(y-y')\vec{e}_y+(z-z')\vec{e}_z}{[(x-x')^2+(y-y')^2+(z-z')^2]^{3/2}}\\
+=&-\frac{\vec{r}}{r^3}
+\end{align*}\normalsize
+(2) $\nabla\times\frac{\vec{r}}{r^3}$\\
+解：
+\begin{align*}
+\nabla\times\frac{\vec{r}}{r^3}=&(\nabla\frac{1}{r^3})\times\vec{r}+\frac{1}{r^3}\nabla\times\vec{r}\\
+\end{align*}
+式中
+\begin{align*}
+\nabla\frac{1}{r^3}=&\frac{\partial\frac{1}{[(x-x')^2+(y-y')^+(z-z')^2]^{3/2}}}{\partial x}\vec{e}_x+\frac{\partial\frac{1}{[(x-x')^2+(y-y')^+(z-z')^2]^{3/2}}}{\partial y}\vec{e}_y\\
+&+\frac{\partial\frac{1}{[(x-x')^2+(y-y')^+(z-z')^2]^{3/2}}}{\partial z}\vec{e}_z\\
+=&-\frac{3(x-x')}{[(x-x')^2+(y-y')^+(z-z')^2]^{5/2}}\vec{e}_x-\frac{3(y-y')}{[(x-x')^2+(y-y')^+(z-z')^2]^{5/2}}\vec{e}_y\\
+&-\frac{3(z-z')}{[(x-x')^2+(y-y')^+(z-z')^2]^{5/2}}\vec{e}_z\\
+=&-3\frac{(x-x')\vec{e}_x+(y-y')\vec{e}_y+(z-z')\vec{e}_z}{[(x-x')^2+(y-y')^+(z-z')^2]^{5/2}}\\
+=&-\frac{3\vec{r}}{r^5}
+\end{align*}
+且
+\begin{align*}
+\nabla\times\vec{r}=&(\frac{\partial(z-z')}{\partial y}-\frac{\partial(y-y')}{\partial z})\vec{e}_x+(\frac{\partial(x-x')}{\partial z}-\frac{\partial(z-z')}{\partial x})\vec{e}_y+(\frac{\partial(y-y')}{\partial x}-\frac{\partial(x-x')}{\partial y})\vec{e}_z\\
+=&\vec{0}
+\end{align*}
+故
+\begin{align*}
+\nabla\times\frac{\vec{r}}{r^3}=&-3\frac{\vec{r}}{r^5}\times\vec{r}+\vec{r}\\
+=&\vec{0}
+\end{align*}
+(3) $\nabla\times\vec{r}$\\
+解：
+\begin{align*}
+\nabla\times\vec{r}=&(\frac{\partial(z-z')}{\partial y}-\frac{\partial(y-y')}{\partial z})\vec{e}_x+(\frac{\partial(x-x')}{\partial z}-\frac{\partial(z-z')}{\partial x})\vec{e}_y+(\frac{\partial(y-y')}{\partial x}-\frac{\partial(x-x')}{\partial y})\vec{e}_z\\
+=&\vec{0}
+\end{align*}
+\section{}
+从杆的纵振动问题导出波动方程，其问题设置如下：\\
+均匀细杆在外力作用下沿杆长方向作微小振动，设杆长方向为$x$轴，$u(x,t)$为$x$\\处的截面在$t$时刻沿杆长方向的位移. 其中理想化假设如下
+i) 振动方向与杆的方向一致.\\
+ii) 均匀细杆：同一横截面上各点的质量密度$\rho$，横截面面积$S$与杨氏模量$Y$（应力与应变值比值）都是常数.\\
+iii) 杆有弹性，服从Hooke定律：即应力与相对伸长成正比.\\
+iv) 外力与杆的方向一致，各点单位长度上的外力为$f_0(x,t)$，重力不计。
+并求出如下情况对应的边界条件：\\
+(1) $x=0$处固定.\\
+(2) $x=0$处受$G(t)$的横向外力.\\
+解：对于杆在区间$[a+u(a,t),b+u(b,t)]$上的部分，其左右端分别受到张力
+\begin{align*}
+&T_a=-YS\frac{u(a+\Delta x,t)-u(a,t)}{\Delta x}=-YS\frac{\partial u}{\partial x}|_{x=a}\\
+&T_b=YS\frac{u(b+\Delta x,t)-u(b,t)}{\Delta x}(b,t)=YS\frac{\partial u}{\partial x}|_{x=b}
+\end{align*}
+根据牛顿第二定律得到波动方程
+\begin{align*}
+&T_a+T_b+(b-a)f_0=\rho(b-a)S\frac{\partial^2u}{\partial t^2}\\
+\Longrightarrow&YS\frac{\frac{\partial u}{\partial x}|_{x=b}-\frac{\partial u}{\partial x}|_{x=a}}{b-a}+f_0=\rho S\frac{\partial^2u}{\partial t^2}\\
+\Longrightarrow&\frac{\partial^2u}{\partial t^2}-\frac{Y}{\rho}\frac{\partial^2u}{\partial x^2}=\frac{f_0}{\rho S}
+\end{align*}
+(1) $u|_{x=0}=0$\\
+(2) 根据牛顿第二定律有
+\[
+\rho\Delta xS\frac{\partial^2u}{\partial t^2}=G(t)+YS\frac{u(\Delta x,t)-u(0,t)}{\Delta x}+f_0(0,t)\Delta x
+\]
+令$\Delta x\rightarrow0$得到
+\[
+\frac{\partial u}{\partial x}|_{x=0}=-\frac{g(t)}{YS}
+\]
+\section{}
+二维波动方程的推出：有一均匀的各向同性的弹性圆膜，四周固定。试列出膜的横振动方程与边界条件(设$\rho_m$为面密度，沿任何方向单位长度张力为$T$).\\
+提示：在极坐标中进行微元分析，进而化为直角坐标下的波动方程.\\
+解：设时刻$t$点$\bm{r}$偏离平衡位置$u(\bm{r},t)$，弹性圆膜半径为$R$. 原题图中所取膜面积元的质量为
+\[
+\Delta m=\rho_m\cdot\Delta S=\rho_m\cdot\rho\Delta\phi\cdot\Delta\rho
+\]
+在径向，根据牛二律有
+\[
+\rho_m\cdot\rho\Delta\phi\cdot\Delta\rho\frac{\partial^2u}{\partial t^2}=-T\rho\Delta\phi\sin\alpha|_{\rho}+T(\rho+\Delta\rho)\Delta\phi\sin\alpha|_{\rho+\Delta\rho}+T\Delta\rho\sin\beta|_{\phi}-T\Delta\rho\sin\beta|_{\phi+\Delta\phi}
+\]
+%在切向，根据受力平衡有
+%\[
+%-T\rho\Delta\phi\cos\alpha|_{\rho}+T(\rho+\Delta\rho)\Delta\phi\cos\alpha|_{\rho+\Delta\rho}=0
+%\]
+%在轴向，根据受力平衡有
+%\[
+%-T\Delta\phi\cos\beta|_{\phi}+T\Delta\phi\cos\beta|_{\phi+\Delta\phi}=0
+%\]
+在小振动下有如下近似
+\[
+\sin\alpha\approx\frac{\partial u}{\partial\rho},~~\sin\beta\approx\frac{1}{\rho}\frac{\partial u}{\partial\phi}
+\]
+故原方程可化为
+\begin{gather*}
+\begin{align*}
+\rho_m\rho\Delta\phi\Delta\rho\frac{\partial^2u}{\partial t^2}=&T\Delta\phi[(\rho\frac{\partial u}{\partial\rho})|_{\rho+\Delta\rho}-(\rho\frac{\partial u}{\partial\rho})|_{\rho}]+T\Delta\rho\frac{1}{\rho}[\frac{\partial u}{\partial\phi}|_{\phi+\Delta\phi}-\frac{\partial u}{\partial\phi}|_{\phi}]\\
+=&T\Delta\phi\frac{\partial}{\partial\rho}(\rho\frac{\partial u}{\partial\rho})\Delta\rho+T\Delta\rho\frac{1}{\rho}\frac{\partial}{\partial\phi}(\frac{\partial u}{\partial\phi})\Delta\phi
+\end{align*}\\
+\Longrightarrow\frac{\partial^2u}{\partial t^2}=\frac{T}{\rho_m}[\frac{1}{\rho}\frac{\partial}{\partial\rho}(\rho\frac{\partial u}{\partial\rho})+\frac{1}{\rho^2}\frac{\partial^2u}{\partial\phi^2}]
+\end{gather*}
+由于四周固定，故
+\[
+u|_{\rho=R}=0
+\]
+转换到直角坐标系，振动方程及边界条件为
+\[
+\left\{\begin{array}{l}
+\frac{\partial^2u}{\partial t^2}=\frac{T}{\rho_m}\nabla^2u\\
+u|_{\sqrt{x^2+y^2}=R}=0
+\end{array}\right.
+\]
+\section{}
+将下列二阶偏微分方程化为标准形式.\\
+(1) $\frac{\partial^2u}{\partial x^2}+4\frac{\partial^2u}{\partial x\partial y}+5\frac{\partial^2u}{\partial y^2}+\frac{\partial u}{\partial x}+2\frac{\partial u}{\partial y}=0$;\\
+解：此方程的特征方程为
+\[
+(\frac{dy}{dx})^2-4\frac{dy}{dx}+5=0
+\]
+解得
+\[
+y-4x=C_1,~~y-x=C_2
+\]
+做变换
+\[
+\xi=y-4x,~~\eta=y-x
+\]
+原方程化为标准形式
+\[
+\frac{\partial^2u}{\partial\xi\partial\eta}=-\frac{\partial u}{\partial\xi}+\frac{1}{2}\frac{\partial u}{\partial\eta}
+\]
+(2) $\frac{\partial^2u}{\partial x^2}+y\frac{\partial^2u}{\partial y^2}+\frac{1}{2}\frac{\partial u}{\partial y}=0$;\\
+解：此方程的特征方程为
+\[
+(\frac{dy}{dx})^2+y=0
+\]
+判别式为
+\[
+\Delta=-y
+\]
+当$\Delta>0$即$y<0$时，解得
+\[
+x\pm2(-y)^{1/2}=\gamma
+\]
+做变换
+\[
+\xi=x+2(-y)^{1/2},~~\eta=x-2(-y)^{1/2}
+\]
+原方程化为标准形式
+\[
+\frac{\partial^2u}{\partial\xi\partial\eta}=0
+\]
+当$\Delta=0$即$y=0$时，原方程为
+\[
+\frac{\partial^2u}{\partial x^2}+\frac{1}{2}\frac{\partial u}{\partial y}=0
+\]
+当$\Delta<0$即$y>0$时，特征方程解得
+\[
+x\pm2iy^{1/2}=\gamma
+\]
+做变换
+\[
+\xi=x,~~\eta=2y^{1/2}
+\]
+原方程化为标准形式
+\[
+\frac{\partial^2u}{\partial\xi^2}+\frac{\partial^2u}{\partial\eta^2}=0
+\]
+(3) $\frac{\partial^2u}{\partial x^2}-2\cos x\frac{\partial^2u}{\partial x\partial y}-(3+\sin^2x)\frac{\partial^2u}{\partial y^2}-y-\frac{\partial u}{\partial y}=0$\\
+解：此方程的特征方程为
+\[
+(\frac{dy}{dx})+2\cos x\frac{dy}{dx}-(3+\sin^2x)=0
+\]
+判别式为
+\[
+\Delta=\cos^2x+3+\sin^2x=4>0
+\]
+解得
+\[
+y\pm\sin x=\gamma
+\]
+做变换
+\[
+\xi=y+\sin x,~~\eta=y-\sin x
+\]
+原方程化为标准形式
+\[
+\frac{\partial^2u}{\partial\xi\partial\eta}=-\frac{1}{8}(\frac{\partial u}{\partial\xi}+\frac{\partial u}{\partial\eta}+u)
+\]
+\end{document}

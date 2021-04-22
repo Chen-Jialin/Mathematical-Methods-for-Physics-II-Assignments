@@ -1,0 +1,47 @@
+% !TEX program = pdflatex
+\documentclass[12pt]{article}
+ \usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,amsfonts, enumitem, fancyhdr, color, comment, graphicx, environ}
+\pagestyle{fancy}
+\setlength{\headheight}{65pt}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{sol}
+    {\emph{Solution:}
+    }
+    {
+    \qed
+    }
+\specialcomment{com}{ \color{blue} \textbf{Comment:} }{\color{black}}
+\NewEnviron{probscore}{\marginpar{ \color{blue} \tiny Problem Score: \BODY \color{black} }}
+\usepackage[UTF8]{ctex}
+\lhead{Name: 陈稼霖\\ StudentID: 45875852}
+\rhead{PHYS1303 \\ 数学物理方法II \\ Spring 2019 \\ Homework 2}
+\begin{document}
+\begin{problem}{1}
+解无界弦上的振动问题
+\[
+\left\{\begin{array}{l}
+\frac{\partial^2u}{\partial t^2}=a^2\frac{\partial^2u}{\partial x^2}+\cos(\omega t)\cos(x),(-\infty<x<+\infty,t>0)\\
+u|_{t=0}=e^{-2x^2},(-\infty<x<+\infty)\\
+\frac{\partial u}{\partial t}|_{t=0}=\sin(x),(-\infty<x<+\infty)
+\end{array}\right.
+\]
+\end{problem}
+\begin{sol}
+\[
+\phi(x)=e^{-2x^2},~~\psi=\sin x,~~f(x,t)=\cos(\omega t)\cos x
+\]
+利用达朗贝尔公式
+\begin{align*}
+u(x,t)=&\frac{1}{2}[\phi(x+at)+\phi(x-at)]+\frac{1}{2a}\int_{x-at}^{x+at}\psi(\xi)d\xi+\frac{1}{2a}\int_0^t\int_{x-a(t-\tau)}^{x+a(t-\tau)}f(\xi,\tau)d\xi d\tau\\
+=&\frac{1}{2}[e^{-2(x+at)^2}+e^{-2(x-at)^2}]+\frac{1}{2a}\int_{x-at}^{x+at}\sin\xi d\xi+\frac{1}{2a}\int_0^t\int_{x-a(t-\tau)}^{x+a(t-\tau)}\cos(\omega\tau)\cos\xi d\xi d\tau\\
+=&\frac{1}{2}[e^{-2(x+at)^2}+e^{-2(x-at)^2}]+\frac{1}{2a}[-\cos(x+at)+\cos(x-at)]\\
+&+\frac{1}{2a}\int_0^t\cos(\omega\tau)\{\sin[x+a(t-\tau)]-\sin[x-a(t-\tau)]\}d\tau\\
+=&\frac{1}{2}[e^{-2(x+at)^2}+e^{-2(x-at)^2}]+\frac{1}{a}\sin x\sin(at)+\frac{1}{a}\int_0^t\cos(\omega\tau)\cos x\sin[a(t-\tau)]d\tau\\
+=&\frac{1}{2}[e^{-2(x+at)^2}+e^{-2(x-at)^2}]+\frac{1}{a}\sin x\sin(at)\\
+&+\frac{\cos x}{2a}\int_0^t\{\sin[\omega\tau+a(t-\tau)]-\sin[\omega\tau-a(t-\tau)]\}d\tau\\
+=&\frac{1}{2}[e^{-2(x+at)^2}+e^{-2(x-at)^2}]+\frac{1}{a}\sin x\sin(at)+\frac{1}{\omega^2-a^2}\cos x[\cos(\omega t)-\cos(at)]
+\end{align*}
+\end{sol}
+\end{document}
